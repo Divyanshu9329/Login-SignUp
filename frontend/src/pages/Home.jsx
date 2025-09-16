@@ -21,7 +21,9 @@ const Home = () => {
   // Fetch products if logged in
   const fetchProducts = async () => {
     try {
-      const res = await fetch("http://localhost:3030/products", {
+      const API = import.meta.env.VITE_API_URL;
+      // on system api = http://localhost:3030/products
+      const res = await fetch(`${API}/products`, {
         headers: {
           Authorization: localStorage.getItem("token"),
         },
